@@ -6,5 +6,5 @@ services:
     container_name: opensea-clone
     tty: true
     volumes:
-      - ./client:/client
-    working_dir: "/client"
+      - ./client_app:/client_app
+    working_dir: "/client_app"
