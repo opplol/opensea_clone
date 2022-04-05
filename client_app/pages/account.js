@@ -45,8 +45,8 @@ const Account = () => {
         `https://eth-rinkeby.alchemyapi.io/v2/5I0n4vQzdcdN-QIMucwplKXeIBqiS4XT/getNFTs?owner=${address}`
       ).then((response) => response.json())
 
-      console.log(ownedNfts)
-      setMyNfts(ownedNfts)
+      const filteredNfts = ownedNfts.filter(nft => !nft.error)
+      setMyNfts(filteredNfts)
     })()
   }, [address])
 
@@ -56,8 +56,6 @@ const Account = () => {
         "bannerImageUrl": bannerImage.asset->url,
         }`
     const userData = await sanityClient.fetch(query)
-
-    console.log(userData, '######')
 
     await setUserData(userData[0])
   }
@@ -98,7 +96,7 @@ const Account = () => {
         </div>
         <div className={style.midRow}>
           <div className={style.createdBy}>
-            <span>{`${address.slice(0, 6)}...${address.slice(38)}`}</span>
+            <span>{`${address?.slice(0, 6)}...${address?.slice(38)}`}</span>
           </div>
         </div>
         <div className={style.midRow}>
