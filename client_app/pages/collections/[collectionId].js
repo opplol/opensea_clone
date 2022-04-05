@@ -33,7 +33,7 @@ const style = {
 
 const Collection = () => {
   const router = useRouter()
-  const { provider } = useWeb3()
+  const { address, provider } = useWeb3()
   const { collectionId } = router.query
   const [collection, setCollection] = useState({})
   const [nfts, setNfts] = useState([])
@@ -54,7 +54,6 @@ const Collection = () => {
     if (!nftModule) return
       ;(async () => {
         const nfts = await nftModule.getAll()
-
         setNfts(nfts)
       })()
   }, [nftModule])

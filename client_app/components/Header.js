@@ -44,9 +44,11 @@ const Header = () => {
         <div className={style.headerItem}> Stats </div>
         <div className={style.headerItem}> Resources </div>
         <div className={style.headerItem}> Create </div>
+        <Link href="/account">
         <div className={style.headerIcon}>
           <CgProfile />
         </div>
+        </Link>
         <div className={style.headerIcon}>
           <MdOutlineAccountBalanceWallet />
         </div>
